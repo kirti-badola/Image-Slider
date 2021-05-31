@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Slider</title>
+	 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	 <link rel="stylesheet" href="style.css">
+
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+
+	<div id="slider">
+		<div id="box">
+			<img src="images/a.jpg">
+		</div>
+
+		<!-- buttons for controls slider -->
+		<button class="prew fa fa-chevron-left" onclick="prewImage()"></button>
+		<button class="next fa fa-chevron-right" onclick="nextImage()"></button>
+	</div>
+
+
+
+<script type="text/javascript">
+	
+	var sliders = document.getElementById('box');
+	var image = ['images/a', 'images/b', 'images/c', 'images/d', 'images/e'];
+	var i = image.length;
+
+//function for next image slider
+	function nextImage(){
+		if(i<image.length){
+			i = i+1;
+		}
+		else{ i = 1;}
+
+		sliders.innerHTML = "<img src="+image[i-1]+".jpg>";
+	}
+
+//function for prew image slider
+	function prewImage(){
+		if(i<image.length+1 && i>1){
+			i = i-1;
+		}
+		else{ i = image.length;}
+
+		sliders.innerHTML = "<img src="+image[i-1]+".jpg>";
+	}
+
+//script for auto image slider
+	setInterval(nextImage, 4000);
+
+ 
+
+</script>
+</body>
+</html>
